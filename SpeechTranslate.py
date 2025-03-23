@@ -4,7 +4,8 @@ from flask import Flask, request, jsonify
 import os
 
 app = Flask(__name__)
-
+UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def recognize_speech_from_file(audio_path):
     recog = spr.Recognizer()
     with spr.AudioFile(audio_path) as source:
